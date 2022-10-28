@@ -1,0 +1,18 @@
+# Filepath of datasets
+filepaths:
+ input: # Input files
+  datafile: ""
+ output: # Output files
+  modelfile: "model.pkl"
+
+# Parameters of model development
+model_develop:
+ features:
+  target_var: "target"
+  feature_vars: ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
+ sampling:
+  sep_var: "" # which level that sample is split at: no overlap among train, val, test
+  sample_ratio: [0.64, 0.16] # proportion of training and validation data: [train, val], test will be 1-train-val
+ others: {'random_state': 1234,
+          'eval_metric': 'mae',
+          'earlystop': 200}
